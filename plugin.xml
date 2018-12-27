@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-aliyun-cloudauth"
+    version="1.0.0">
+
+  <name>Aliyun CloudAuth</name>
+  <description>Aliyun CloudAuth Cordova Plugin </description>
+  <author>Jason.z</author>
+  <license>Apache 2.0 License</license>
+  <keywords>cloudauth,faceauth</keywords>
+  <license>Apache 2.0</license>
+  <repo>https://github.com/jasonz1987/cordova-plugin-aliyun-cloudauth.git</repo>
+  <issue>https://github.com/jasonz1987/cordova-plugin-aliyun-cloudauth/issues</issue>
+
+  <js-module name="CloudAuth" src="www/cloudauth.js">
+    <clobbers target="CloudAuth"/>
+  </js-module>
+  <!-- android -->
+  <platform name="android">
+    <lib-file src="src/android/libs/aliyun-oss-sdk-android-2.2.0.jar" />
+    <lib-file src="src/android/libs/FaceLivenessOpen-2.1.6.10.aar" />
+    <lib-file src="src/android/libs/NoCaptchaSDK-external-release-5.4.26.aar"/>
+    <lib-file src="src/android/libs/SecurityBodySDK-external-release-5.4.66.aar" />
+    <lib-file src="src/android/libs/SecurityGuardSDK-external-release-5.4.94.aar" />
+    <lib-file src="src/android/libs/okhttp-3.2.0.jar" />
+    <lib-file src="src/android/libs/okio-1.6.0.jar" />
+    <lib-file src="src/android/libs/rpsdk-release_2.4.0.3.aar" />
+    <lib-file src="src/android/libs/windvane-mini-8.0.3.2.3.jar" />
+
+    <source-file src="src/android/CDVCloudAuth.java" target-dir="src/com/jasonz/cordova/aliyun" />
+    <resource-file src="src/android/res/yw_1222_0670.jpg" target="res/drawable/yw_1222_0670.jpg" />
+
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+      <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+      <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+    </config-file>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CloudAuth">
+        <param name="android-package" value="com.jasonz.cordova.aliyuan.CDVCloudAuth"/>
+      </feature>
+    </config-file>
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+
+    <header-file src="src/ios/CDVCloudAuth.h" />
+    <source-file src="src/ios/CDVCloudAuth.m" />
+
+    <framework src="SystemConfiguration.framework" />
+    <framework src="CoreMedia.framework" />
+    <framework src="CoreMotion.framework" />
+    <framework src="CoreTelephony.framework" />
+    <framework src="AVFoundation.framework" />
+    <framework src="ImageIO.framework" />
+    <framework src="MobileCoreServices.framework" />
+    <framework src="MediaPlayer.framework" />
+    <framework src="CoreLocation.framework" />
+    <framework src="AddressBook.framework" />
+    <framework src="AddressBookUI.framework" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="AudioToolbox.framework" />
+    <framework src="AssetsLibrary.framework" />
+    <framework src="Libresolv.tbd" />
+    <framework src="WebKit.framework" />
+    <framework src="Libiconv.tbd" />
+    <framework src="Libc++.tbd" />
+    <framework src="Libz.tbd" />
+
+    <framework src="src/ios/RPSDK.framework" custom="true" />
+    <framework src="src/ios/FaceLivenessOpen.framework" custom="true" />
+    <framework src="src/ios/SecurityGuardSDK.framework" custom="true" />
+    <framework src="src/ios/SGMain.framework" custom="true" />
+    <framework src="src/ios/SGNoCaptcha.framework" custom="true" />
+    <framework src="src/ios/SGSecurityBody.framework" custom="true" />
+    <framework src="src/ios/AliyunOSSiOS.framework" custom="true" />
+    <framework src="src/ios/WindVane.framework" custom="true" />
+    <framework src="src/ios/WindVaneBasic.framework" custom="true" />
+    <framework src="src/ios/WindVaneBridge.framework" custom="true" />
+    <framework src="src/ios/WindVaneCore.framework" custom="true" />
+    <framework src="src/ios/ZipArchive.framework" custom="true" />
+    <framework src="src/ios/AliReachability.framework" custom="true" />
+
+    <config-file target="config.xml" parent="/*">
+        <feature name="CloudAuth">
+          <param name="ios-package" value="CDVCloudAuth"/>
+        </feature>
+    </config-file>
+  </platform>
+
+</plugin>

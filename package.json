@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-aliyun-cloudauth",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-aliyun-cloudauth",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "description": "Cordova Cloudauth FaceAuth",
+  "repository": "https://github.com/jasonz1987/cordova-plugin-aliyun-cloudauth.git",
+  "issue": "https://github.com/jasonz1987/cordova-plugin-aliyun-cloudauth/issues",
+  "keywords": [
+    "cordova",
+    "aliyun",
+    "cloudauth",
+    "faceauth"
+  ],
+  "author":"Jason.z",
+  "license": "Apache 2.0 License"
+}
